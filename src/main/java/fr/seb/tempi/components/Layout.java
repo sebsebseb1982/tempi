@@ -9,7 +9,7 @@ import org.apache.tapestry5.SymbolConstants;
 /**
  * Layout component for pages of application tempi.
  */
-@Import(stylesheet = "context:layout/layout.css")
+@Import(stylesheet = {"context:css/bootstrap.min.css", "context:css/bootstrap-responsive.min.css"})
 public class Layout
 {
     /**
