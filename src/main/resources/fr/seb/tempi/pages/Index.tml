@@ -2,5 +2,8 @@
       t:sidebarTitle="Framework Version"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
-	<t:GPOutButton pin="ledPin"/>
+	<t:GPOutButton pin="led1Pin"/>
+	<t:GPOutButton pin="led2Pin"/>
+	<t:GPOutButton pin="led3Pin"/>
+	<t:GPOutButton pin="led4Pin"/>
 </html>

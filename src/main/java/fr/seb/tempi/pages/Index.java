@@ -13,4 +13,10 @@ public class Index
 {
 	@Property
 	private Pin led1Pin = RaspiPin.GPIO_00;
+	@Property
+	private Pin led2Pin = RaspiPin.GPIO_01;
+	@Property
+	private Pin led3Pin = RaspiPin.GPIO_02;
+	@Property
+	private Pin led4Pin = RaspiPin.GPIO_03;
 }
