@@ -1,0 +1,11 @@
+<html t:type="layout" title="tempi Index"
+      t:sidebarTitle="Framework Version"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+      
+	<t:zone t:id="chart">
+		<div id="charts" style="width: 600px; height: 300px; position: relative; cursor: default;"></div>
+	</t:zone>
+      
+	<t:actionlink t:id="addMeasure" t:zone="chart">Ajouter une mesure</t:actionlink>
+</html>

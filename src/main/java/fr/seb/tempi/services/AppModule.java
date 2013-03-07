@@ -2,7 +2,7 @@ package fr.seb.tempi.services;
 
 import java.io.IOException;
 
-import org.apache.tapestry5.*;
+import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
@@ -13,6 +13,8 @@ import org.apache.tapestry5.services.RequestHandler;
 import org.apache.tapestry5.services.Response;
 import org.slf4j.Logger;
 
+import fr.seb.tempi.services.data.TemperatureMeasureService;
+import fr.seb.tempi.services.data.impl.TemperatureMeasureServiceImpl;
 import fr.seb.tempi.services.gpio.GPIOService;
 import fr.seb.tempi.services.gpio.impl.GPIOServiceImpl;
 
@@ -25,6 +27,7 @@ public class AppModule
     public static void bind(ServiceBinder binder)
     {
         binder.bind(GPIOService.class, GPIOServiceImpl.class);
+        binder.bind(TemperatureMeasureService.class, TemperatureMeasureServiceImpl.class);
 
         // Make bind() calls on the binder object to define most IoC services.
         // Use service builder methods (example below) when the implementation
