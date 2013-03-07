@@ -12,5 +12,5 @@ import com.pi4j.io.gpio.RaspiPin;
 public class Index
 {
 	@Property
-	private Pin ledPin = RaspiPin.GPIO_00;
+	private Pin led1Pin = RaspiPin.GPIO_00;
 }

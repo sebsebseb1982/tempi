@@ -15,7 +15,7 @@ public class GPOutButton {
 	private Pin pin;
 	
 	@Parameter
-	private boolean defautState;
+	private Boolean defautState;
 
 	@Persist
 	private Boolean state;
@@ -30,8 +30,14 @@ public class GPOutButton {
 	}
 	
 	private boolean getState() {
+		// Si l'état de la sortie n'a pas encore été fixé pour le composant bouton
 		if(state == null) {
-			return defautState;
+			// Si un état par défaut a été précisé
+			if(defautState != null) {
+				return defautState;
+			} else {
+				return gpioService.getPinState(pin);
+			}
 		} else {
 			return state;
 		}

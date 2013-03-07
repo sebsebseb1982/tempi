@@ -12,4 +12,8 @@ public class GPIOServiceImpl implements GPIOService {
 		GPIOPinManager.getInstance().getPin(pin).setState(state);
 	}
 
+	public boolean getPinState(Pin pin) {
+		return GPIOPinManager.getInstance().getPin(pin).getState().isHigh();
+	}
+
 }

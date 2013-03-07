@@ -5,4 +5,6 @@ import com.pi4j.io.gpio.PinState;
 
 public interface GPIOService {
 	void writePinState(Pin pin, PinState state);
+
+	boolean getPinState(Pin pin);
 }
