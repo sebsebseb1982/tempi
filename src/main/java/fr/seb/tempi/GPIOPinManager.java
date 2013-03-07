@@ -7,6 +7,7 @@ import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
+import com.pi4j.io.gpio.PinState;
 
 public class GPIOPinManager {
 	
@@ -30,7 +31,8 @@ public class GPIOPinManager {
 	
 	public GpioPinDigitalOutput getPin(Pin pin) {
 		if(!pins.containsKey(pin)) {
-			GpioPinDigitalOutput provisionDigitalOutputPin = gpio.provisionDigitalOutputPin(pin);
+			PinState defaultState = null;
+			GpioPinDigitalOutput provisionDigitalOutputPin = gpio.provisionDigitalOutputPin(pin, defaultState);
 			pins.put(pin, provisionDigitalOutputPin);
 		}
 		return pins.get(pin);
