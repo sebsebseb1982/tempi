@@ -4,9 +4,11 @@ import java.util.Collection;
 import java.util.Date;
 
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 
-import fr.seb.tempi.data.persistant.TemperatureMeasure;
+import fr.seb.tempi.entities.TemperatureMeasure;
 import fr.seb.tempi.services.data.TemperatureMeasureService;
 
 public class TemperatureMeasureServiceImpl implements TemperatureMeasureService {
@@ -22,7 +24,8 @@ public class TemperatureMeasureServiceImpl implements TemperatureMeasureService 
 	}
 
 	public Collection<TemperatureMeasure> list() {
-		return session.createCriteria(TemperatureMeasure.class).list();
+		Criteria createCriteria = session.createCriteria(TemperatureMeasure.class);
+		createCriteria.addOrder(Order.asc("created"));
+		return createCriteria.list();
 	}
-
 }

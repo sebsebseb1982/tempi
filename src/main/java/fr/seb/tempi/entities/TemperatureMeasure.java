@@ -1,4 +1,4 @@
-package fr.seb.tempi.data.persistant;
+package fr.seb.tempi.entities;
 
 import java.util.Date;
 

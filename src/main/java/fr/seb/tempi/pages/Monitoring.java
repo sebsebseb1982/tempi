@@ -1,6 +1,7 @@
 package fr.seb.tempi.pages;
 
 import java.util.Calendar;
+import java.util.Collection;
 
 import org.apache.tapestry5.annotations.AfterRender;
 import org.apache.tapestry5.annotations.Environmental;
@@ -9,6 +10,7 @@ import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 
+import fr.seb.tempi.entities.TemperatureMeasure;
 import fr.seb.tempi.services.data.TemperatureMeasureService;
 
 @Import(library={
@@ -29,7 +31,6 @@ public class Monitoring {
 	@Inject
 	private TemperatureMeasureService temperatureMeasureService;
 	
-	@SuppressWarnings("unused")
 	@CommitAfter
 	private void onActionFromAddMeasure() {
 		
@@ -68,21 +69,22 @@ public class Monitoring {
     }
     
     private int randRange(int min, int max) {
-    	return min + (int)Math.random() * (max - min);
+    	return (int) (min + Math.random() * (max - min));
     }
-
+    
 	private String computeDataString() {
 		
 		StringBuilder data = new StringBuilder();
 		
+		Collection<TemperatureMeasure> list = temperatureMeasureService.list();
 		data.append("[");
-//		for (TemperatureMeasure aMeasure : temperatureMeasureService.list()) {
-//			data.append("[");
-//			data.append(aMeasure.getCreated().getTime());
-//			data.append(",");
-//			data.append(aMeasure.getValue());
-//			data.append("],");
-//		}
+		for (TemperatureMeasure aMeasure : list) {
+			data.append("[");
+			data.append(aMeasure.getCreated().getTime());
+			data.append(",");
+			data.append(aMeasure.getValue());
+			data.append("],");
+		}
 		data.append("]");
 		
 		return data.toString();
