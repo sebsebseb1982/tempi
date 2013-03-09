@@ -1,7 +1,8 @@
-<html t:type="layout" title="tempi Index"
-      t:sidebarTitle="Framework Version"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-      xmlns:p="tapestry:parameter">
+<html 
+	t:type="layout" pageTitle="${message:page.title}"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter"
+>
 	<t:GPOutButton pin="led1Pin" label="${message:label.pin.1}" />
 	<t:GPOutButton pin="led2Pin" label="${message:label.pin.2}" />
 	<t:GPOutButton pin="led3Pin" label="${message:label.pin.3}" />

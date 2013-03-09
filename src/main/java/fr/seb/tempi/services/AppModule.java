@@ -13,6 +13,8 @@ import org.apache.tapestry5.services.RequestHandler;
 import org.apache.tapestry5.services.Response;
 import org.slf4j.Logger;
 
+import data.constants.Symbols;
+
 import fr.seb.tempi.services.data.TemperatureMeasureService;
 import fr.seb.tempi.services.data.impl.TemperatureMeasureServiceImpl;
 import fr.seb.tempi.services.gpio.GPIOService;
@@ -27,8 +29,8 @@ public class AppModule
 {
     public static void bind(ServiceBinder binder)
     {
-//        binder.bind(GPIOService.class, GPIOServiceImpl.class);
-        binder.bind(GPIOService.class, FakeGPIOServiceImpl.class);
+        binder.bind(GPIOService.class, GPIOServiceImpl.class);
+//        binder.bind(GPIOService.class, FakeGPIOServiceImpl.class);
         binder.bind(TemperatureMeasureService.class, TemperatureMeasureServiceImpl.class);
 
         // Make bind() calls on the binder object to define most IoC services.
@@ -58,6 +60,7 @@ public class AppModule
         // you can extend this list of locales (it's a comma separated series of locale names;
         // the first locale name is the default when there's no reasonable match).
         configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en");
+        configuration.add(Symbols.PROJECT_NAME, "TemPI");
     }
 
 

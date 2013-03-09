@@ -1,10 +1,15 @@
 package fr.seb.tempi.components;
 
-import org.apache.tapestry5.*;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
 import org.apache.tapestry5.BindingConstants;
+import org.apache.tapestry5.ComponentResources;
 import org.apache.tapestry5.SymbolConstants;
+import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.Parameter;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.ioc.annotations.Symbol;
+
+import data.constants.Symbols;
 
 /**
  * Layout component for pages of application tempi.
@@ -15,33 +20,22 @@ public class Layout
     /**
      * The page title, for the <title> element and the <h1> element.
      */
-    @Property
+	@Property
     @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
-    private String title;
+    private String pageTitle;
 
-    @Property
-    private String pageName;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private String sidebarTitle;
-
-    @Property
-    @Parameter(defaultPrefix = BindingConstants.LITERAL)
-    private Block sidebar;
-
+	@SuppressWarnings("unused")
+	@Inject
+    @Symbol(Symbols.PROJECT_NAME)
+	@Property
+    private String projectName;
+    
     @Inject
     private ComponentResources resources;
 
-    @Property
-    @Inject
-    @Symbol(SymbolConstants.APPLICATION_VERSION)
-    private String appVersion;
-
-
     public String getClassForPageName()
     {
-        return resources.getPageName().equalsIgnoreCase(pageName)
+        return resources.getPageName().equalsIgnoreCase(pageTitle)
                 ? "current_page_item"
                 : null;
     }

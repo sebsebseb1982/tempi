@@ -1,9 +1,11 @@
 package fr.seb.tempi.components;
 
 import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import com.pi4j.io.gpio.Pin;
@@ -20,6 +22,7 @@ public class GPOutButton {
 	@Parameter
 	private Boolean defautState;
 	
+	@SuppressWarnings("unused")
 	@Parameter(required=true)
 	@Property
 	private String label;
@@ -30,16 +33,20 @@ public class GPOutButton {
 	@Inject
 	private GPIOService gpioService;
 	
+	@InjectComponent
+	private Zone zoneGPOutButton;
+	
 	@SuppressWarnings("unused")
 	private void onActionFromChangeState() {
 		state = !getState();
 		gpioService.writePinState(pin, PinState.getState(state));
+//		return zoneGPOutButton.getBody();
 	}
 	
 	private boolean getState() {
-		// Si l'état de la sortie n'a pas encore été fixé pour le composant bouton
+		// Si l'ï¿½tat de la sortie n'a pas encore ï¿½tï¿½ fixï¿½ pour le composant bouton
 		if(state == null) {
-			// Si un état par défaut a été précisé
+			// Si un ï¿½tat par dï¿½faut a ï¿½tï¿½ prï¿½cisï¿½
 			if(defautState != null) {
 				return defautState;
 			} else {
