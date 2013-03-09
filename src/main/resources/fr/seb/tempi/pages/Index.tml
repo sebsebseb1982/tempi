@@ -2,8 +2,8 @@
       t:sidebarTitle="Framework Version"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
-	<t:GPOutButton pin="led1Pin"/>
-	<t:GPOutButton pin="led2Pin"/>
-	<t:GPOutButton pin="led3Pin"/>
-	<t:GPOutButton pin="led4Pin"/>
+	<t:GPOutButton pin="led1Pin" label="${message:label.pin.1}" />
+	<t:GPOutButton pin="led2Pin" label="${message:label.pin.2}" />
+	<t:GPOutButton pin="led3Pin" label="${message:label.pin.3}" />
+	<t:GPOutButton pin="led4Pin" label="${message:label.pin.4}" />
 </html>

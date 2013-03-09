@@ -1,7 +1,9 @@
 package fr.seb.tempi.components;
 
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Persist;
+import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import com.pi4j.io.gpio.Pin;
@@ -9,6 +11,7 @@ import com.pi4j.io.gpio.PinState;
 
 import fr.seb.tempi.services.gpio.GPIOService;
 
+@Import(stylesheet="context:css/GPOutButton.css")
 public class GPOutButton {
 	
 	@Parameter(required=true)
@@ -16,6 +19,10 @@ public class GPOutButton {
 	
 	@Parameter
 	private Boolean defautState;
+	
+	@Parameter(required=true)
+	@Property
+	private String label;
 
 	@Persist
 	private Boolean state;

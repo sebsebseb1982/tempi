@@ -1,7 +1,9 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 	<t:content>
-		<t:zone t:id="zone">
-			<a class="btn ${buttonStyle}" t:type="actionlink" t:id="changeState" href="#">${stateLabel}</a>
-		</t:zone>
+		<div class="gpout-button">
+			<t:zone t:id="zone">
+				<span>${label}</span><a class="btn ${buttonStyle}" t:type="actionlink" t:id="changeState" href="#">${stateLabel}</a>
+			</t:zone>
+		</div>
 	</t:content>
 </html>

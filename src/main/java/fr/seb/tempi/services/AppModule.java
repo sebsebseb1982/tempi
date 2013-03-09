@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import fr.seb.tempi.services.data.TemperatureMeasureService;
 import fr.seb.tempi.services.data.impl.TemperatureMeasureServiceImpl;
 import fr.seb.tempi.services.gpio.GPIOService;
+import fr.seb.tempi.services.gpio.impl.FakeGPIOServiceImpl;
 import fr.seb.tempi.services.gpio.impl.GPIOServiceImpl;
 
 /**
@@ -26,7 +27,8 @@ public class AppModule
 {
     public static void bind(ServiceBinder binder)
     {
-        binder.bind(GPIOService.class, GPIOServiceImpl.class);
+//        binder.bind(GPIOService.class, GPIOServiceImpl.class);
+        binder.bind(GPIOService.class, FakeGPIOServiceImpl.class);
         binder.bind(TemperatureMeasureService.class, TemperatureMeasureServiceImpl.class);
 
         // Make bind() calls on the binder object to define most IoC services.
