@@ -1,9 +1,29 @@
-<html t:type="layout" title="tempi Index"
-      t:sidebarTitle="Framework Version"
+<html t:type="layout" pageTitle="tempi Index"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
       
-		<div id="charts" style="width: 600px; height: 300px; position: relative; cursor: default;"></div>
-		<t:actionlink t:id="addMeasure">Ajouter une mesure</t:actionlink>
-      
+		<t:actionlink t:id="addMeasure" zone="chartZone">Ajouter une mesure</t:actionlink>
+		
+		<t:zone t:id="chartZone">
+			<t:temperatureChart t:id="chart"/>
+		</t:zone>
+		
+		<br/>
+		<br/>
+		<br/>
+		
+		<ul>
+			<li>
+				<t:actionlink t:id="last24h" zone="chartZone">Last 24h</t:actionlink>
+			</li>
+			<li>
+				<t:actionlink t:id="lastMonth" zone="chartZone">Last month</t:actionlink>
+			</li>
+			<li>
+				<t:actionlink t:id="lastYear" zone="chartZone">Last year</t:actionlink>
+			</li>
+			<li>
+				<t:actionlink t:id="everything" zone="chartZone">Everything</t:actionlink>     	 
+			</li>
+		</ul>
 </html>
